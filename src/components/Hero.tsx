@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] py-2 md:py-4 px-2 md:px-4 w-full bg-titanium dark:bg-[#050505] transition-colors duration-300">
+    <section className="relative min-h-[90vh] py-2 md:py-4 px-2 md:px-4 w-full bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
       <div className="w-full h-full min-h-[85vh] rounded-[2rem] md:rounded-[3rem] overflow-hidden relative shadow-xl flex flex-col justify-between pt-48 pb-12 px-6 md:px-16 bg-graphite transition-colors duration-300 border border-transparent dark:border-gray-800">
         
         {/* Background Video */}
