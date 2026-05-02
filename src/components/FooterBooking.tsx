@@ -2,13 +2,13 @@ import { motion } from 'motion/react';
 
 export default function FooterBooking() {
   return (
-    <footer className="w-full bg-graphite text-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 lg:p-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-transparent pointer-events-none"></div>
+    <footer className="w-full bg-graphite dark:bg-[#0a0a0a] text-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 lg:p-24 relative overflow-hidden transition-colors duration-300">
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 dark:from-cyan/10 to-transparent pointer-events-none"></div>
       
       <div className="max-w-[1600px] mx-auto relative z-10 w-full">
         <div className="flex flex-col lg:flex-row gap-12 justify-between mb-16">
-          <div className="max-w-2xl">
-            <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-display font-medium leading-[0.8] tracking-tighter mb-8">
+          <div className="max-w-2xl w-full">
+            <h2 className="text-6xl md:text-8xl lg:text-9xl xl:text-[9rem] font-display font-medium leading-[0.8] tracking-tighter mb-8 break-words hyphens-auto">
               Start a<br/>Case
             </h2>
             <p className="text-gray-400 text-lg md:text-xl font-medium">Partner with 3DDX today for predictable surgical outcomes.</p>

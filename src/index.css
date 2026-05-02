@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
@@ -14,10 +16,13 @@
 
 @layer base {
   body {
-    @apply bg-titanium text-graphite font-sans antialiased overflow-x-hidden;
+    @apply bg-titanium text-graphite font-sans antialiased overflow-x-hidden transition-colors duration-300;
+  }
+  .dark body {
+    @apply bg-[#050505] text-[#f4f4f5];
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+    @apply font-display tracking-tight transition-colors duration-300;
   }
 }
 
@@ -30,5 +35,12 @@
     .rounded-huge {
       border-radius: 3rem;
     }
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

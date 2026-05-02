@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Star } from 'lucide-react';
 
 export default function Testimonials() {
   const testimonials = [
@@ -24,13 +23,8 @@ export default function Testimonials() {
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-
   return (
-    <section className="py-20 md:py-24 px-4 md:px-8 w-full bg-titanium">
+    <section className="py-20 md:py-24 px-4 md:px-8 w-full bg-titanium dark:bg-[#050505] transition-colors duration-300">
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -40,51 +34,43 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
             <span className="text-cyan font-bold tracking-widest uppercase mb-4 block">Clinical Outcomes</span>
-            <h2 className="text-4xl md:text-6xl font-display font-medium tracking-tighter">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter dark:text-white transition-colors">
               Trusted by leading clinicians worldwide.
             </h2>
           </div>
-          <div className="flex gap-4 items-center">
-            <p className="text-gray-500 max-w-xs mr-4 hidden lg:block">
-              See how top specialists are scaling their practices and improving predictability.
-            </p>
-            <button onClick={prev} className="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white shadow-sm">
-               <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button onClick={next} className="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white shadow-sm">
-               <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
+          <p className="text-gray-500 dark:text-gray-400 max-w-xs transition-colors">
+            See how top specialists are scaling their practices and improving predictability.
+          </p>
         </div>
 
-        <div className="relative h-[380px] w-full flex justify-center items-center">
-          <AnimatePresence mode="wait">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {testimonials.map((testimonial, idx) => (
             <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, x: -50, filter: 'blur(4px)' }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="absolute inset-0 bg-white rounded-[3rem] p-8 md:p-16 shadow-xl border border-gray-100 flex flex-col justify-between w-full h-full"
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-white dark:bg-[#121212] rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col justify-between h-full hover:shadow-md transition-all duration-300"
             >
               <div>
                 <div className="flex gap-1 mb-8 text-cyan">
-                  {[...Array(5)].map((_, idx) => <Star key={idx} fill="currentColor" className="w-6 h-6" />)}
+                  {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-5 h-5" />)}
                 </div>
-                <p className="text-2xl md:text-4xl text-gray-800 leading-snug tracking-tight font-display font-medium mb-12 max-w-5xl">
-                  "{testimonials[currentIndex].quote}"
+                <p className="text-lg md:text-xl text-gray-800 dark:text-gray-200 leading-relaxed font-medium mb-12">
+                  "{testimonial.quote}"
                 </p>
               </div>
               
-              <div className="flex items-center gap-6 mt-auto">
-                <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].author} className="w-20 h-20 rounded-full object-cover grayscale" />
+              <div className="flex items-center gap-4 mt-auto">
+                <img src={testimonial.image} alt={testimonial.author} className="w-14 h-14 rounded-full object-cover grayscale" />
                 <div>
-                  <h4 className="font-display font-bold text-graphite text-xl">{testimonials[currentIndex].author}</h4>
-                  <p className="text-gray-500 font-medium">{testimonials[currentIndex].title}</p>
+                  <h4 className="font-display font-bold text-graphite dark:text-white text-lg transition-colors">{testimonial.author}</h4>
+                  <p className="text-gray-500 dark:text-gray-400 font-medium text-sm transition-colors">{testimonial.title}</p>
                 </div>
               </div>
             </motion.div>
-          </AnimatePresence>
+          ))}
         </div>
       </motion.div>
     </section>
