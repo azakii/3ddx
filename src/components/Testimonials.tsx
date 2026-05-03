@@ -34,13 +34,13 @@ export default function Testimonials() {
       quote: "Communication with their lab is phenomenal. Any adjustments we need for complex restorative cases are handled swiftly and accurately.",
       author: "Dr. Emily Taylor",
       title: "General Dentist, WA",
-      image: "https://images.unsplash.com/photo-1594824436951-7f12bc552fb1?q=80&w=200&auto=format&fit=crop"
+      image: ""
     },
     {
       quote: "Integrating their radiology reports into our daily workflow has saved us countless hours. The detailed analysis provides insights we can trust.",
       author: "Dr. Robert Foster",
       title: "Periodontist, IL",
-      image: "https://images.unsplash.com/photo-1622253692348-73b060f6797a?q=80&w=200&auto=format&fit=crop"
+      image: ""
     }
   ];
 
