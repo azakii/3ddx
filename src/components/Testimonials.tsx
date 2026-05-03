@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Star, ArrowLeft, ArrowRight, User } from 'lucide-react';
 import { useState } from 'react';
 import { WordFadeIn } from './WordFadeIn';
 import AnimatedButton from './AnimatedButton';
@@ -117,7 +117,13 @@ export default function Testimonials() {
                   </div>
                   
                   <div className="flex items-center gap-4 shrink-0">
-                    <img src={testimonial.image} alt={testimonial.author} className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-sm" />
+                    {testimonial.image && !testimonial.image.includes('placehold.co') ? (
+                      <img src={testimonial.image} alt={testimonial.author} className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-sm bg-gray-100 dark:bg-gray-800" />
+                    ) : (
+                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center shadow-sm text-gray-400 dark:text-gray-500">
+                        <User className="w-6 h-6 md:w-8 md:h-8" />
+                      </div>
+                    )}
                     <div>
                       <h4 className="font-display font-bold text-graphite dark:text-white text-lg transition-colors mb-0.5">{testimonial.author}</h4>
                       <p className="text-[#188DBA] font-medium transition-colors text-sm">{testimonial.title}</p>
