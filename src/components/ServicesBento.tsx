@@ -31,7 +31,7 @@ export default function ServicesBento() {
       >
         
         {/* Left Big Text Box */}
-        <div className="md:col-span-5 bg-white dark:bg-[#121212] rounded-huge p-10 md:p-16 flex flex-col justify-between min-h-[500px] shadow-sm border border-gray-100 dark:border-gray-800 transition-colors duration-300">
+        <div className="md:col-span-5 bg-white dark:bg-[#121212] rounded-huge p-10 md:p-16 flex flex-col justify-between min-h-[500px] hover:shadow-sm border border-gray-100 dark:border-gray-800 transition-colors duration-300">
           <div className="space-y-4">
              <p className="text-cyan font-medium uppercase tracking-widest text-sm">Our Elite Service Offerings</p>
              <p className="text-gray-500 dark:text-gray-400 text-lg max-w-sm mt-4 transition-colors">
@@ -40,7 +40,7 @@ export default function ServicesBento() {
           </div>
           <div className="mt-12 w-full overflow-hidden">
             <WordFadeIn 
-              text="Digital<br/>Workflows" 
+              text="Digital<br/>Solutions" 
               as="h2" 
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-tighter font-display text-graphite dark:text-white transition-colors duration-300 break-words hyphens-auto" 
             />
@@ -85,14 +85,14 @@ export default function ServicesBento() {
             <button 
               onClick={prev} 
               disabled={currentIndex === 0}
-              className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
+              className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 hover:shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
             >
                <ChevronLeft className="w-6 h-6" />
             </button>
             <button 
               onClick={next} 
               disabled={currentIndex === maxIndex}
-              className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
+              className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 hover:shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
             >
                <ChevronRight className="w-6 h-6" />
             </button>
@@ -110,7 +110,7 @@ export default function ServicesBento() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-8 w-[280px] aspect-[4/3] flex flex-col justify-between hover:bg-graphite hover:dark:bg-white transition-all duration-300 cursor-pointer group shadow-sm shrink-0 relative overflow-hidden"
+                className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-8 w-[280px] aspect-[4/3] flex flex-col justify-between hover:bg-graphite hover:dark:bg-white transition-all duration-300 cursor-pointer group hover:shadow-sm shrink-0 relative overflow-hidden"
               >
                 <img src={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
                 <div className="flex justify-between items-start relative z-10">
@@ -138,7 +138,7 @@ export default function ServicesBento() {
               {services.map((service, i) => (
                 <div 
                   key={service.num}
-                  className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-10 flex flex-col justify-between hover:bg-graphite hover:dark:bg-white transition-all duration-300 cursor-pointer group shadow-sm shrink-0 aspect-[4/3] relative overflow-hidden"
+                  className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-10 flex flex-col justify-between hover:bg-graphite hover:dark:bg-white transition-all duration-300 cursor-pointer group hover:shadow-sm shrink-0 aspect-[4/3] relative overflow-hidden"
                   style={{ width: `calc((100% - ${(visibleItems - 1) * 1.5}rem) / ${visibleItems})` }}
                 >
                   <img src={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-30 dark:group-hover:opacity-10 transition-opacity duration-500 blur-[2px]" />

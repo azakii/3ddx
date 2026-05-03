@@ -14,7 +14,7 @@ export default function FloatingContact() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="flex flex-col bg-white dark:bg-[#121212] rounded-[1.5rem] shadow-2xl border border-gray-100 dark:border-gray-800 w-max overflow-hidden pointer-events-auto"
+            className="flex flex-col bg-white dark:bg-[#121212] rounded-[1.5rem] hover:shadow-2xl border border-gray-100 dark:border-gray-800 w-max overflow-hidden pointer-events-auto"
           >
             <div className="flex flex-col p-2">
               <a href="mailto:info@3ddx.com" className="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors rounded-xl group w-full">
@@ -52,7 +52,7 @@ export default function FloatingContact() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#188DBA] dark:bg-[#188DBA] text-white rounded-full p-4 md:p-5 shadow-2xl hover:bg-[#F2701D] dark:hover:bg-[#F2701D] transition-colors border-2 border-transparent dark:border-[#188DBA]/20 flex items-center justify-center shrink-0 pointer-events-auto"
+        className="bg-[#188DBA] dark:bg-[#188DBA] text-white rounded-full p-4 md:p-5 hover:shadow-2xl hover:bg-[#F2701D] dark:hover:bg-[#F2701D] transition-colors border-2 border-transparent dark:border-[#188DBA]/20 flex items-center justify-center shrink-0 pointer-events-auto"
         aria-label={isOpen ? "Close contact menu" : "Contact Us"}
       >
         <motion.div

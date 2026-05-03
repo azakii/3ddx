@@ -36,7 +36,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 md:py-32 px-4 md:px-8 w-full bg-[#f4f4f5] dark:bg-[#0a0a0a] transition-colors duration-300">
+    <section className="py-20 md:py-32 px-4 md:px-8 w-full bg-[#f4f4f5] dark:bg-[#0a0a0a] transition-colors duration-300 rounded-[2.5rem]">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
@@ -87,7 +87,7 @@ export default function Testimonials() {
                 </div>
                 
                 <div className="flex items-center gap-6 shrink-0 pt-4 md:pt-0">
-                  <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].author} className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg" />
+                  <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].author} className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover hover:shadow-lg" />
                   <div>
                     <h4 className="font-display font-bold text-graphite dark:text-white text-xl md:text-2xl transition-colors mb-1">{testimonials[currentIndex].author}</h4>
                     <p className="text-[#188DBA] font-medium transition-colors text-sm md:text-base">{testimonials[currentIndex].title}</p>

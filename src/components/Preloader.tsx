@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function Preloader({ onComplete }: { onComplete: () => void }) {
   const [progress, setProgress] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Fake loading progress
@@ -13,12 +14,17 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
 
     const timer = setInterval(() => {
       currentStep++;
-      const nextProgress = Math.min(Math.round((currentStep / steps) * 100), 100);
+      // Easing out the progress for a more organic feel
+      const t = currentStep / steps;
+      const easedT = t * (2 - t);
+      
+      const nextProgress = Math.min(Math.round(easedT * 100), 100);
       setProgress(nextProgress);
 
       if (currentStep >= steps) {
         clearInterval(timer);
-        setTimeout(onComplete, 400); // slight delay before unmounting
+        setIsLoaded(true);
+        setTimeout(onComplete, 1200); // Give time for split animation to finish
       }
     }, interval);
 
@@ -26,40 +32,30 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
   }, [onComplete]);
 
   return (
-    <motion.div
-      initial={{ y: 0 }}
-      animate={{ y: progress === 100 ? "-100%" : 0 }}
-      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-      className="fixed inset-0 z-[9999] bg-[#188DBA] flex flex-col items-center justify-center pointer-events-none"
-    >
-      <div className="flex flex-col items-center justify-center overflow-hidden">
-        <motion.div 
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-white text-7xl md:text-9xl font-display font-medium tracking-tighter mix-blend-difference"
-        >
-          3DDX
-        </motion.div>
-        
-        <motion.div
-           className="mt-8 flex items-center justify-between w-64 md:w-96 text-white font-mono text-sm uppercase tracking-widest mix-blend-difference"
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 0.5 }}
-        >
-          <span>Loading</span>
-          <span>{progress}%</span>
-        </motion.div>
-        <div className="w-64 md:w-96 h-1 bg-white/20 mt-4 rounded-full overflow-hidden mix-blend-difference">
-          <motion.div
-            className="h-full bg-white rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ ease: "linear" }}
-          />
-        </div>
-      </div>
-    </motion.div>
+    <div className="fixed inset-0 z-[9999] pointer-events-none flex flex-col items-center justify-center overflow-hidden">
+      {/* Top Panel */}
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: isLoaded ? "-100%" : 0 }}
+        transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }} 
+        className="absolute top-0 left-0 w-full h-1/2 bg-[#050505] origin-top border-b border-gray-900/50"
+      />
+      
+      {/* Bottom Panel */}
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: isLoaded ? "100%" : 0 }}
+        transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }} 
+        className="absolute bottom-0 left-0 w-full h-1/2 bg-[#050505] origin-bottom border-t border-gray-900/50"
+      />
+
+      <motion.div 
+        animate={{ opacity: isLoaded ? 0 : 1, scale: isLoaded ? 0.95 : 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative z-10 text-white text-[6rem] sm:text-[8rem] md:text-[12rem] leading-none font-display font-medium tracking-tighter mix-blend-difference"
+      >
+        {progress}%
+      </motion.div>
+    </div>
   );
 }

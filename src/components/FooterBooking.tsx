@@ -4,7 +4,7 @@ import { WordFadeIn } from './WordFadeIn';
 
 export default function FooterBooking() {
   return (
-    <footer className="w-full bg-graphite dark:bg-[#0a0a0a] text-white p-8 md:p-16 lg:p-24 relative overflow-hidden transition-colors duration-300">
+    <footer className="w-full bg-graphite dark:bg-[#0a0a0a] text-white p-8 md:p-16 lg:p-24 relative overflow-hidden transition-colors duration-300 rounded-[2.5rem]">
       <div className="absolute inset-0 bg-gradient-to-br from-[#188DBA]/5 dark:from-[#188DBA]/10 to-transparent pointer-events-none"></div>
       
       <div className="max-w-[1400px] mx-auto relative z-10 w-full">

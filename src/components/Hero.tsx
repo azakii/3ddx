@@ -59,7 +59,7 @@ export default function Hero() {
                  </span>
                ))}
              </h2>
-             <button className="bg-[#188DBA] text-white rounded-full px-10 py-5 font-bold text-lg hover:bg-white hover:text-graphite transition-all hover:scale-105 inline-block mt-4 w-max shadow-lg">
+             <button className="bg-[#188DBA] text-white rounded-full px-10 py-5 font-bold text-lg hover:bg-white hover:text-graphite transition-all hover:scale-105 inline-block mt-4 w-max hover:shadow-lg">
                Book an appointment
              </button>
           </motion.div>

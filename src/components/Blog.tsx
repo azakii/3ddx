@@ -73,14 +73,14 @@ export default function Blog() {
              <button 
                 onClick={prev} 
                 disabled={currentIndex === 0}
-                className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
+                className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 hover:shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
               >
                  <ChevronLeft className="w-6 h-6" />
               </button>
               <button 
                 onClick={next} 
                 disabled={currentIndex === maxIndex}
-                className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
+                className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-cyan hover:border-cyan hover:text-graphite transition-all bg-white dark:bg-[#121212] dark:text-gray-300 hover:shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-200 disabled:hover:dark:border-gray-800 disabled:hover:text-current"
               >
                  <ChevronRight className="w-6 h-6" />
               </button>

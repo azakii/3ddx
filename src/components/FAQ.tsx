@@ -34,7 +34,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 md:py-24 px-4 md:px-8 w-full bg-titanium dark:bg-[#050505] transition-colors duration-300">
+    <section className="py-20 md:py-24 px-4 md:px-8 w-full bg-titanium dark:bg-[#050505] transition-colors duration-300 rounded-[2.5rem]">
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

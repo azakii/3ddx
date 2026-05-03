@@ -68,7 +68,7 @@ export default function Navigation() {
         <div 
           className={`w-full flex items-center justify-between px-6 md:px-12 py-4 transition-colors duration-300 ${
             lastScrollY > 20 
-              ? 'bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 shadow-sm' 
+              ? 'bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 hover:shadow-sm' 
               : 'bg-transparent border-b border-transparent'
           }`}
           onMouseLeave={handleMouseLeave}
@@ -109,7 +109,7 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 w-full bg-white dark:bg-[#121212] border-t border-gray-100 dark:border-white/5 shadow-2xl flex text-graphite dark:text-white"
+                  className="absolute top-full left-0 w-full bg-white dark:bg-[#121212] border-t border-gray-100 dark:border-white/5 hover:shadow-2xl flex text-graphite dark:text-white"
                 >
                   <div className="max-w-[1400px] mx-auto w-full flex">
                     {/* Left sidebar */}
@@ -152,7 +152,7 @@ export default function Navigation() {
                     {/* Right promo */}
                     <div className="w-[25%] p-8 flex flex-col justify-center">
                       <h3 className="text-graphite dark:text-white font-bold mb-4">Featured Product</h3>
-                      <div className="rounded-2xl overflow-hidden mb-4 aspect-[16/10] bg-gray-200 dark:bg-gray-800 shadow-sm">
+                      <div className="rounded-2xl overflow-hidden mb-4 aspect-[16/10] bg-gray-200 dark:bg-gray-800 hover:shadow-sm">
                         <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Dental Model" className="w-full h-full object-cover" />
                       </div>
                       <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
@@ -176,7 +176,7 @@ export default function Navigation() {
             >
               {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            <button className="bg-[#f6823c] text-white px-6 py-2.5 rounded hover:bg-[#e0702a] transition-all font-medium text-[15px] shadow-sm">
+            <button className="bg-[#f6823c] text-white px-6 py-2.5 rounded hover:bg-[#e0702a] transition-all font-medium text-[15px] hover:shadow-sm">
               My account
             </button>
           </div>
@@ -209,7 +209,7 @@ export default function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 overflow-hidden px-6 py-4 shadow-xl absolute w-full transition-colors duration-300"
+              className="lg:hidden bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 overflow-hidden px-6 py-4 hover:shadow-xl absolute w-full transition-colors duration-300"
             >
               <ul className="flex flex-col gap-4 text-lg font-display font-medium dark:text-gray-200">
                 <li><a href="#" className="block hover:text-cyan transition-colors">Solutions</a></li>
