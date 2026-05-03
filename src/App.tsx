@@ -37,11 +37,13 @@ export default function App() {
       
       <Navigation />
       
-      <div className="w-full">
-        <Hero />
+      <div className="w-full relative h-[80vh]">
+        <div className="fixed top-0 left-0 w-full h-[80vh] z-0">
+          <Hero />
+        </div>
       </div>
 
-      <div className="flex-grow px-4 md:px-8 pb-4 md:pb-8 pt-8">
+      <div className="relative z-10 flex-grow px-4 md:px-8 pb-4 md:pb-8 pt-8 bg-white dark:bg-[#050505]">
         <div className="w-full max-w-[1800px] mx-auto flex flex-col gap-8 md:gap-16">
           <main className="flex flex-col gap-8 md:gap-16">
             <div className="overflow-hidden bg-white dark:bg-[#0a0a0a]">
@@ -61,11 +63,13 @@ export default function App() {
         </div>
       </div>
       
-      <div className="w-full overflow-hidden bg-[#050505] my-8 md:my-16">
-        <ParallaxSection />
+      <div className="relative z-10 w-full overflow-hidden bg-white dark:bg-[#050505] py-8 md:py-16">
+        <div className="w-full overflow-hidden bg-[#050505]">
+          <ParallaxSection />
+        </div>
       </div>
 
-      <div className="flex-grow px-4 md:px-8 pb-4 md:pb-8">
+      <div className="relative z-10 flex-grow px-4 md:px-8 pb-4 md:pb-8 bg-white dark:bg-[#050505]">
         <div className="w-full max-w-[1800px] mx-auto flex flex-col gap-8 md:gap-16">
           <main className="flex flex-col gap-8 md:gap-16">
             <div className="overflow-hidden bg-white dark:bg-[#0a0a0a]">

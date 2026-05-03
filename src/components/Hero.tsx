@@ -1,9 +1,19 @@
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const rawY = useTransform(scrollY, [0, 1000], [0, -500]);
+  const rawOpacity = useTransform(scrollY, [0, 400, 800], [1, 1, 0]);
+  
+  const y = useSpring(rawY, { stiffness: 50, damping: 20, restDelta: 0.001 });
+  const opacity = useSpring(rawOpacity, { stiffness: 50, damping: 20, restDelta: 0.001 });
+
   return (
-    <section className="relative min-h-[80vh] w-full bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
-      <div className="w-full h-full min-h-[80vh] relative flex flex-col justify-end pt-32 md:pt-40 pb-12 md:pb-16 px-6 md:px-16 bg-graphite transition-colors duration-300">
+    <section className="h-[80vh] w-full bg-graphite transition-colors duration-300">
+      <motion.div 
+        style={{ y, opacity }}
+        className="w-full h-full flex flex-col justify-end pt-32 md:pt-40 pb-12 md:pb-16 px-6 md:px-16 bg-graphite transition-colors duration-300 relative"
+      >
         
         {/* Background Video */}
         <video 
@@ -64,7 +74,7 @@ export default function Hero() {
              </button>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
