@@ -6,11 +6,11 @@ export default function ServicesBento() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const services = [
-    { num: '01', title: 'Implant Planning', desc: 'Precision CBCT merging and nerve mapping.' },
-    { num: '02', title: 'Surgical Guides', desc: 'Custom printed with ISO-certified materials.' },
-    { num: '03', title: 'Radiology Reports', desc: 'Board-certified OMR evaluations.' },
-    { num: '04', title: 'Aligner Services', desc: 'Full digital setup and staging.' },
-    { num: '05', title: 'Restorations', desc: 'Custom abutments and crowns.' }
+    { num: '01', title: 'Implant Planning', desc: 'Precision CBCT merging and nerve mapping.', img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop' },
+    { num: '02', title: 'Surgical Guides', desc: 'Custom printed with ISO-certified materials.', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop' },
+    { num: '03', title: 'Radiology Reports', desc: 'Board-certified OMR evaluations.', img: 'https://images.unsplash.com/photo-1594824436998-d8ea05bbb5eb?q=80&w=800&auto=format&fit=crop' },
+    { num: '04', title: 'Aligner Services', desc: 'Full digital setup and staging.', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop' },
+    { num: '05', title: 'Restorations', desc: 'Custom abutments and crowns.', img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop' }
   ];
 
   const visibleItems = 3; // for desktop
@@ -38,7 +38,7 @@ export default function ServicesBento() {
              </p>
           </div>
           <div className="mt-12 w-full overflow-hidden">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[0.85] tracking-tighter font-display text-graphite dark:text-white transition-colors duration-300 break-words hyphens-auto">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-tighter font-display text-graphite dark:text-white transition-colors duration-300 break-words hyphens-auto">
               Digital<br/>Workflows
             </h2>
           </div>
@@ -107,17 +107,18 @@ export default function ServicesBento() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-8 w-[280px] aspect-[4/3] flex flex-col justify-between hover:bg-graphite hover:dark:bg-white hover:text-white hover:dark:text-graphite transition-all duration-300 cursor-pointer group shadow-sm shrink-0"
+                className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-8 w-[280px] aspect-[4/3] flex flex-col justify-between hover:bg-graphite hover:dark:bg-white transition-all duration-300 cursor-pointer group shadow-sm shrink-0 relative overflow-hidden"
               >
-                <div className="flex justify-between items-start">
-                  <div className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center font-mono text-sm group-hover:border-gray-700 dark:group-hover:border-gray-300 bg-gray-50 dark:bg-gray-900 text-graphite dark:text-gray-300 transition-colors">
+                <img src={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                <div className="flex justify-between items-start relative z-10">
+                  <div className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center font-mono text-sm group-hover:border-gray-700 dark:group-hover:border-gray-300 bg-gray-50 dark:bg-gray-900 group-hover:bg-transparent text-graphite dark:text-gray-300 transition-colors">
                     {service.num}
                   </div>
                   <ArrowUpRight className="w-6 h-6 text-gray-300 dark:text-gray-600 group-hover:text-cyan transition-colors" />
                 </div>
-                <div>
+                <div className="relative z-10">
                   <h3 className="text-2xl font-display font-medium mb-2 dark:text-gray-100 group-hover:text-white group-hover:dark:text-graphite">{service.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400 group-hover:text-gray-400 group-hover:dark:text-gray-600 text-sm">{service.desc}</p>
+                  <p className="text-gray-500 dark:text-gray-400 group-hover:text-gray-300 group-hover:dark:text-gray-600 text-sm">{service.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -134,18 +135,21 @@ export default function ServicesBento() {
               {services.map((service, i) => (
                 <div 
                   key={service.num}
-                  className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-10 flex flex-col justify-between hover:bg-graphite hover:dark:bg-white hover:text-white hover:dark:text-graphite transition-all duration-300 cursor-pointer group shadow-sm shrink-0 aspect-[4/3]"
+                  className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-gray-800 rounded-[2rem] p-10 flex flex-col justify-between hover:bg-graphite hover:dark:bg-white transition-all duration-300 cursor-pointer group shadow-sm shrink-0 aspect-[4/3] relative overflow-hidden"
                   style={{ width: `calc((100% - ${(visibleItems - 1) * 1.5}rem) / ${visibleItems})` }}
                 >
-                  <div className="flex justify-between items-start">
-                    <div className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center font-mono text-sm group-hover:border-gray-700 dark:group-hover:border-gray-300 bg-gray-50 dark:bg-gray-900 text-graphite dark:text-gray-300 transition-colors">
+                  <img src={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-30 dark:group-hover:opacity-10 transition-opacity duration-500 blur-[2px]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 dark:from-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="flex justify-between items-start relative z-10">
+                    <div className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center font-mono text-sm group-hover:border-white/20 dark:group-hover:border-gray-300 bg-gray-50 dark:bg-gray-900 group-hover:bg-transparent text-graphite dark:text-gray-300 group-hover:text-white dark:group-hover:text-graphite transition-colors">
                       {service.num}
                     </div>
                     <ArrowUpRight className="w-6 h-6 text-gray-300 dark:text-gray-600 group-hover:text-cyan transition-colors" />
                   </div>
-                  <div>
+                  <div className="relative z-10">
                     <h3 className="text-3xl font-display font-medium mb-3 dark:text-gray-100 group-hover:text-white group-hover:dark:text-graphite">{service.title}</h3>
-                    <p className="text-gray-500 dark:text-gray-400 group-hover:text-gray-400 group-hover:dark:text-gray-600 text-sm">{service.desc}</p>
+                    <p className="text-gray-500 dark:text-gray-400 group-hover:text-gray-200 group-hover:dark:text-gray-700 text-sm">{service.desc}</p>
                   </div>
                 </div>
               ))}

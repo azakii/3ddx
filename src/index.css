@@ -10,8 +10,10 @@
   --color-graphite: #0a0a0a;
   --color-titanium: #f4f4f5;
   --color-surgical-white: #ffffff;
-  --color-cyan: #00e5ff;
+  --color-cyan: #188DBA;
   --color-emerald: #10b981;
+  --color-primary: #188DBA;
+  --color-secondary: #F2701D;
 }
 
 @layer base {

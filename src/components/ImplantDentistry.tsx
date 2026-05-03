@@ -1,126 +1,140 @@
 import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 export default function ImplantDentistry() {
   return (
-    <section className="px-4 md:px-8 py-12 md:py-16 w-full bg-titanium dark:bg-[#050505] transition-colors duration-300">
+    <section className="px-4 md:px-8 py-16 md:py-24 w-full bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="bg-white dark:bg-[#121212] rounded-[3rem] p-8 md:p-12 lg:p-16 shadow-xl border border-gray-100 dark:border-gray-800 max-w-[1600px] mx-auto transition-colors duration-300"
+        className="max-w-[1400px] mx-auto"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          
-          {/* Left Column Text */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <span className="text-sm font-bold tracking-widest uppercase text-cyan mb-6 block">Surgical Authority</span>
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-medium leading-[0.9] tracking-tighter mb-8 text-graphite dark:text-white transition-colors duration-300">
-              Guided<br/>Surgery
+        <div className="flex flex-col md:flex-row justify-between md:items-end mb-16 gap-8">
+          <div className="max-w-3xl">
+            <span className="inline-block border border-gray-200 dark:border-gray-800 rounded-full px-4 py-1.5 text-xs font-bold text-graphite dark:text-gray-300 mb-6 bg-gray-50 dark:bg-white/5 shadow-sm tracking-widest uppercase">
+              Workflow Hub
+            </span>
+            <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-display font-bold leading-[1.05] tracking-tight mb-6 text-graphite dark:text-white uppercase transition-colors">
+              Master the 3DDX <br className="hidden md:block" />
+              <span className="text-[#188DBA] relative inline-block">
+                Digital Workflow
+                <svg className="absolute w-full h-3 -bottom-2 md:-bottom-4 left-0 text-[#188DBA]/20" viewBox="0 0 100 12" preserveAspectRatio="none">
+                  <path d="M0,10 Q50,-5 100,10" stroke="currentColor" strokeWidth="4" fill="none" />
+                </svg>
+              </span>
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl max-w-md mb-8 transition-colors">
-              Achieve unprecedented accuracy with our full-arch and single-unit precision guided workflows. We integrate smoothly with your existing scanners and CBCTs.
+            <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed transition-colors max-w-xl">
+              Discover how digital workflows improve precision,
+              efficiency, and patient satisfaction in modern implant dentistry.
             </p>
-            
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-medium transition-colors">
-                <CheckCircle2 className="w-6 h-6 text-emerald" /> 
-                Bone reduction guides and stackable solutions
-              </li>
-              <li className="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-medium transition-colors">
-                <CheckCircle2 className="w-6 h-6 text-emerald" /> 
-                Prosthetically-driven implant placement
-              </li>
-              <li className="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-medium transition-colors">
-                <CheckCircle2 className="w-6 h-6 text-emerald" /> 
-                Integrated immediate load temporaries
-              </li>
-            </ul>
-
-            <button className="bg-graphite dark:bg-white text-white dark:text-graphite rounded-full px-8 py-4 font-bold hover:bg-cyan hover:dark:bg-cyan hover:dark:text-white hover:text-graphite transition-all w-max inline-flex items-center gap-2">
-              Explore All-on-X <ArrowRight className="w-5 h-5" />
+          </div>
+          <div className="pb-2">
+            <button className="bg-graphite dark:bg-white text-white dark:text-graphite py-4 px-8 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-xl shadow-graphite/10 dark:shadow-white/5">
+              Start a Case <Play className="w-4 h-4 fill-current ml-1" />
             </button>
           </div>
+        </div>
 
-          {/* Right Column Huge Image */}
-          <div className="lg:col-span-7">
-            <div className="rounded-[2.5rem] overflow-hidden h-[500px] lg:h-[700px] w-full bg-gray-100 dark:bg-gray-800 relative group transition-colors">
-              <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" 
-                alt="Medical precision" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
-              />
-              {/* Overlay content */}
-              <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 via-transparent to-transparent opacity-80"></div>
-              <div className="absolute bottom-10 left-10 text-white max-w-md">
-                <h4 className="text-2xl font-display font-medium mb-2">Flawless Registration</h4>
-                <p className="text-gray-300">Our proprietary merging protocol ensures optical scans align perfectly with DICOM volumes for zero-error planning.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Large Video Card - Spans 2 cols on lg */}
+          <div className="lg:col-span-2 relative rounded-[2.5rem] overflow-hidden aspect-[16/10] md:aspect-auto min-h-[450px] border border-gray-100 dark:border-gray-800 group shadow-lg bg-[#0a0a0a]">
+            <video 
+              src="https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patient-in-a-dental-clinic-42862-large.mp4" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 mix-blend-luminosity"
+              autoPlay loop muted playsInline
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
+            <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-10 flex flex-col justify-end h-full">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 w-full mt-auto">
+                <div>
+                  <span className="inline-block px-3 py-1.5 bg-white/10 backdrop-blur-md rounded-lg text-white text-xs font-bold mb-5 uppercase tracking-wider border border-white/20">Tutorial</span>
+                  <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight leading-tight">See how it works</h3>
+                  <p className="text-gray-300 max-w-md text-lg leading-relaxed">Jump right in — get an overview of the basics and see a full implant procedure from start to finish.</p>
+                </div>
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#188DBA] flex items-center justify-center cursor-pointer hover:bg-white group/btn transition-colors shadow-2xl shadow-[#188DBA]/40 shrink-0">
+                  <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-2 group-hover/btn:text-[#188DBA] group-hover/btn:fill-[#188DBA] transition-colors" />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom Cards row */}
-          <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 gap-6 lg:col-span-1">
+            {/* Step 1 */}
+            <div className="rounded-[2.5rem] bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-8 flex flex-col justify-between group hover:border-[#188DBA]/30 transition-all shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-white dark:bg-[#1a1a1a] shadow-sm text-[#188DBA] flex items-center justify-center text-xl font-bold font-display group-hover:bg-[#188DBA] group-hover:text-white transition-colors border border-gray-100 dark:border-gray-800">
+                01
+              </div>
+              <div className="mt-8">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-graphite dark:text-white mb-3 uppercase tracking-tight">
+                  SCAN & PLAN
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium transition-colors">
+                  Capture accurate CBCT and intraoral scans to prepare your implant case with clinical precision.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="rounded-[2.5rem] bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-8 flex flex-col justify-between group hover:border-[#188DBA]/30 transition-all shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="w-14 h-14 rounded-2xl bg-white dark:bg-[#1a1a1a] shadow-sm text-[#188DBA] flex items-center justify-center text-xl font-bold font-display group-hover:bg-[#188DBA] group-hover:text-white transition-colors border border-gray-100 dark:border-gray-800">
+                02
+              </div>
+              <div className="mt-8">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-graphite dark:text-white mb-3 uppercase tracking-tight">
+                  SURGICAL GUIDES
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium transition-colors">
+                  Custom 3D-printed guides designed for precise, safe, and efficient implant surgery.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:col-span-3">
+            {/* Step 3 */}
+            <div className="rounded-[2.5rem] bg-gray-50 dark:bg-[#121212] border border-gray-100 dark:border-gray-800 p-8 flex flex-col justify-between group hover:border-[#188DBA]/30 transition-all shadow-sm hover:shadow-lg h-full">
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-white dark:bg-[#1a1a1a] shadow-sm text-[#188DBA] flex items-center justify-center text-xl font-bold font-display group-hover:bg-[#188DBA] group-hover:text-white transition-colors border border-gray-100 dark:border-gray-800">
+                  03
+                </div>
+                <div className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 group-hover:text-[#188DBA] group-hover:border-[#188DBA]/30 transition-colors">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl md:text-2xl font-display font-bold text-graphite dark:text-white mb-3 uppercase tracking-tight">
+                  PROSTHETICS
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium transition-colors">
+                  Efficient delivery of prosthetics for predictable, aesthetically pleasing patient outcomes. From single crowns to full arches.
+                </p>
+              </div>
+            </div>
             
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-gray-50 dark:bg-[#18181A] border border-gray-200 dark:border-gray-800 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between group h-[340px] relative overflow-hidden hover:border-cyan dark:hover:border-cyan transition-colors"
-            >
-               <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 dark:from-[#18181A] to-white dark:to-[#202022] flex items-center justify-center opacity-50 transition-colors">
-                 <div className="w-48 h-48 blur-3xl bg-cyan/20 rounded-full absolute -top-10 -right-10 transition-transform group-hover:scale-150 duration-700"></div>
-               </div>
-               <div className="relative z-10 flex flex-col h-full justify-between">
-                  <div>
-                    <span className="text-xs uppercase tracking-widest font-bold text-gray-400">Technology</span>
-                    <h3 className="text-4xl font-display mt-4 font-medium text-graphite dark:text-white mb-3 transition-colors">Predictable<br/>Restorations</h3>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors">Custom abutments and crowns designed concurrently with your surgical guide.</p>
+            {/* Additional Box (e.g. CTA/Promo) */}
+            <div className="rounded-[2.5rem] bg-[#188DBA] text-white p-8 md:p-10 flex flex-col justify-center group relative overflow-hidden shadow-xl shadow-[#188DBA]/20">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl transform -translate-y-1/2 translate-x-1/3 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-2xl transform translate-y-1/2 -translate-x-1/2"></div>
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center md:items-center gap-8 justify-between">
+                <div className="flex-1">
+                  <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-sm mb-6">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22 17H2C2 17 2 5 2 5C2 5 22 5 22 5" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 17V22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M8 22H16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
-                  <button className="bg-white dark:bg-[#202022] border border-gray-200 dark:border-gray-700 text-graphite dark:text-white rounded-full px-6 py-3 w-fit font-bold flex items-center gap-2 group-hover:bg-graphite group-hover:dark:bg-white group-hover:text-white group-hover:dark:text-graphite transition-colors shadow-sm">
-                    View Cases
-                  </button>
-               </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-gray-50 dark:bg-[#18181A] border border-gray-200 dark:border-gray-800 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-end group h-[340px] relative overflow-hidden hover:border-graphite dark:hover:border-gray-500 transition-colors"
-            >
-               <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" alt="Planning layout" className="absolute inset-0 w-full h-full object-cover opacity-20 sepia mix-blend-multiply dark:mix-blend-overlay group-hover:opacity-40 transition-opacity" />
-               <div className="relative z-10">
-                 <div className="text-2xl font-display font-medium text-graphite dark:text-white max-w-[200px] mb-6 transition-colors">
-                   The Digital Planning Process
-                 </div>
-                 <div className="w-14 h-14 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center group-hover:bg-cyan group-hover:border-cyan transition-colors cursor-pointer bg-white dark:bg-[#202022]">
-                   <ArrowRight className="w-6 h-6 text-graphite dark:text-white" />
-                 </div>
-               </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-graphite text-white rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-end group h-[340px] relative overflow-hidden"
-            >
-               <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan via-graphite to-graphite mix-blend-overlay"></div>
-               <div className="relative z-10">
-                 <div className="text-2xl font-display font-medium max-w-[200px] text-white/90 mb-6">
-                   Ensuring Surgical Success Rates
-                 </div>
-                 <div className="w-14 h-14 rounded-full border border-gray-600 flex items-center justify-center group-hover:bg-emerald group-hover:border-emerald transition-colors cursor-pointer bg-graphite">
-                   <ArrowRight className="w-6 h-6" />
-                 </div>
-               </div>
-            </motion.div>
-
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-4 leading-tight tracking-tight text-white">Ready to upgrade<br/>your digital workflow?</h3>
+                  <p className="text-white/80 text-lg mb-0 font-medium">Join thousands of dental professionals.</p>
+                </div>
+                <button className="w-full md:w-auto bg-white text-[#188DBA] py-4 px-8 rounded-full font-bold hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl text-lg shrink-0 hover:-translate-y-1">
+                  Start Now
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>

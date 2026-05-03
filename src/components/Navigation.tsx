@@ -44,42 +44,50 @@ export default function Navigation() {
       initial={{ y: 0 }}
       animate={{ y: showNav ? 0 : -150 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 flex flex-col w-full shadow-sm"
+      className={`fixed top-0 left-0 right-0 z-50 flex flex-col w-full transition-all duration-500`}
     >
       {/* Top Small Navigation */}
       <div className="w-full bg-graphite text-white text-xs py-2 px-4 md:px-8 flex justify-between items-center relative z-20">
         <div className="flex items-center gap-4 text-gray-300">
-          <a href="#" className="hover:text-cyan transition-colors">Remote access</a>
-          <a href="#" className="hover:text-cyan transition-colors">Join fine-tune</a>
+          <a href="#" className="hover:text-[#188DBA] transition-colors">Remote access</a>
+          <a href="#" className="hover:text-[#188DBA] transition-colors">Join fine-tune</a>
         </div>
         <div className="flex items-center gap-6">
-          <a href="mailto:info@3ddx.com" className="hover:text-cyan transition-colors hidden md:block text-gray-300">email us: info@3ddx.com</a>
-          <a href="tel:617-820-5279" className="hover:text-cyan transition-colors hidden md:block text-gray-300">617-820-5279</a>
+          <a href="mailto:info@3ddx.com" className="hover:text-[#188DBA] transition-colors hidden md:block text-gray-300">email us: info@3ddx.com</a>
+          <a href="tel:617-820-5279" className="hover:text-[#188DBA] transition-colors hidden md:block text-gray-300">617-820-5279</a>
           <div className="flex items-center gap-4 text-gray-300">
-            <Facebook className="w-3 h-3 hover:text-cyan cursor-pointer transition-colors"/>
-            <Twitter className="w-3 h-3 hover:text-cyan cursor-pointer transition-colors"/>
-            <Instagram className="w-3 h-3 hover:text-cyan cursor-pointer transition-colors"/>
-            <Linkedin className="w-3 h-3 hover:text-cyan cursor-pointer transition-colors"/>
+            <Facebook className="w-3 h-3 hover:text-[#188DBA] cursor-pointer transition-colors"/>
+            <Twitter className="w-3 h-3 hover:text-[#188DBA] cursor-pointer transition-colors"/>
+            <Instagram className="w-3 h-3 hover:text-[#188DBA] cursor-pointer transition-colors"/>
+            <Linkedin className="w-3 h-3 hover:text-[#188DBA] cursor-pointer transition-colors"/>
           </div>
         </div>
       </div>
 
       <div className="w-full shrink-0 transition-all duration-300">
         <div 
-          className="w-full bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 flex items-center justify-between px-6 md:px-12 py-4 transition-colors duration-300"
+          className={`w-full flex items-center justify-between px-6 md:px-12 py-4 transition-colors duration-300 ${
+            lastScrollY > 20 
+              ? 'bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 shadow-sm' 
+              : 'bg-transparent border-b border-transparent'
+          }`}
           onMouseLeave={handleMouseLeave}
         >
           {/* Logo matching uploaded image */}
           <div className="flex items-end font-display tracking-tight leading-none cursor-pointer w-1/4">
-            <span className="text-[28px] font-bold text-[#1483b4] mr-1">3D</span>
-            <div className="w-0.5 h-8 bg-[#1483b4] mx-1 mr-2 opacity-80"></div>
-            <span className="text-[28px] font-medium text-[#f6823c]">Diagnostix</span>
+            <span className="text-[28px] font-bold text-[#188DBA] mr-1">3D</span>
+            <div className="w-0.5 h-8 bg-[#188DBA] mx-1 mr-2 opacity-80"></div>
+            <span className="text-[28px] font-medium text-[#F2701D]">Diagnostix</span>
             <span className="text-sm font-bold tracking-widest text-gray-500 mb-[2px] ml-1 uppercase">.com</span>
           </div>
 
           {/* Centered Desktop Links */}
-          <div className="hidden lg:flex flex-1 justify-center relative">
-            <ul className="flex items-center gap-8 text-[15px] font-medium text-graphite/90 dark:text-gray-200">
+          <div className="hidden lg:flex flex-1 justify-center relative lg:static">
+            <ul className={`flex items-center gap-8 text-[15px] font-medium transition-colors duration-300 ${
+              lastScrollY > 20 
+                ? 'text-graphite/90 dark:text-gray-200' 
+                : 'text-white dark:text-gray-200'
+            }`}>
               <li 
                 onMouseEnter={() => handleMouseEnter('solutions')}
                 className="hover:text-cyan transition-colors cursor-pointer py-2 flex items-center gap-1"
@@ -97,58 +105,60 @@ export default function Navigation() {
             <AnimatePresence>
               {activeMegaMenu === 'solutions' && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-[60px] left-1/2 -translate-x-1/2 w-[800px] bg-graphite/98 dark:bg-[#121212]/98 backdrop-blur-2xl border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl flex text-white"
+                  className="absolute top-full left-0 w-full bg-white dark:bg-[#121212] border-t border-gray-100 dark:border-white/5 shadow-2xl flex text-graphite dark:text-white"
                 >
-                  {/* Left sidebar */}
-                  <div className="w-1/3 border-r border-white/10 dark:border-white/5 py-6 flex flex-col">
-                    <button className="text-left px-6 py-3 bg-cyan/10 text-cyan font-bold flex justify-between items-center group">
-                      Guided surgery solutions
-                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="text-left px-6 py-3 hover:bg-white/5 text-gray-300 hover:text-white transition-colors flex justify-between items-center group">
-                      All on X solutions
-                      <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                    </button>
-                    <button className="text-left px-6 py-3 hover:bg-white/5 text-gray-300 hover:text-white transition-colors flex justify-between items-center group">
-                      Restorations
-                      <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                    </button>
-                    <button className="text-left px-6 py-3 hover:bg-white/5 text-gray-300 hover:text-white transition-colors flex justify-between items-center group">
-                      Capital Equipment
-                      <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                    </button>
-                    <button className="text-left px-6 py-3 hover:bg-white/5 text-gray-300 hover:text-white transition-colors flex justify-between items-center group">
-                      Other solutions
-                      <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                    </button>
-                    <button className="text-left px-6 py-3 hover:bg-white/5 text-gray-300 hover:text-white transition-colors flex justify-between items-center mt-auto border-t border-white/10 dark:border-white/5 font-bold text-cyan">
-                      Shop
-                      <ArrowUpRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                  
-                  {/* Middle content */}
-                  <div className="w-1/3 p-6 flex flex-col border-r border-white/10 dark:border-white/5">
-                    <h3 className="text-cyan font-bold mb-6">Guided surgery solutions</h3>
-                    <ul className="space-y-4">
-                      <li><a href="#" className="text-gray-300 hover:text-white transition-colors border-b border-gray-800 pb-2 block">Simple Cases</a></li>
-                      <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Complex Cases</a></li>
-                    </ul>
-                  </div>
-
-                  {/* Right promo */}
-                  <div className="w-1/3 p-6 bg-white/5 dark:bg-white/10">
-                    <h3 className="text-white font-bold mb-4">Featured Product</h3>
-                    <div className="rounded-xl overflow-hidden mb-4 aspect-video bg-gray-800 border border-gray-700">
-                      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Dental Model" className="w-full h-full object-cover" />
+                  <div className="max-w-[1400px] mx-auto w-full flex">
+                    {/* Left sidebar */}
+                    <div className="w-[30%] border-r border-gray-100 dark:border-white/5 py-6 flex flex-col">
+                      <button className="text-left px-8 py-3 bg-cyan/10 text-cyan font-bold flex justify-between items-center group">
+                        Guided surgery solutions
+                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                      <button className="text-left px-8 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-graphite dark:hover:text-white transition-colors flex justify-between items-center group">
+                        All on X solutions
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button className="text-left px-8 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-graphite dark:hover:text-white transition-colors flex justify-between items-center group">
+                        Restorations
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button className="text-left px-8 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-graphite dark:hover:text-white transition-colors flex justify-between items-center group">
+                        Capital Equipment
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button className="text-left px-8 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-graphite dark:hover:text-white transition-colors flex justify-between items-center group">
+                        Other solutions
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button className="text-left px-8 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-graphite dark:hover:text-white transition-colors flex justify-between items-center mt-4 border-t border-gray-100 dark:border-white/5 font-bold text-cyan">
+                        Shop
+                        <ArrowUpRight className="w-4 h-4" />
+                      </button>
                     </div>
-                    <p className="text-sm text-gray-400 dark:text-gray-300">
-                      Jump right in — get an overview of the basics and get started.
-                    </p>
+                    
+                    {/* Middle content */}
+                    <div className="w-[45%] p-8 flex flex-col border-r border-gray-100 dark:border-white/5">
+                      <h3 className="text-cyan font-bold mb-6 text-lg">Guided surgery solutions</h3>
+                      <ul className="space-y-4">
+                        <li><a href="#" className="font-medium text-gray-800 dark:text-gray-200 hover:text-cyan transition-colors border-b border-gray-100 dark:border-gray-800 pb-3 block">Simple Cases</a></li>
+                        <li><a href="#" className="font-medium text-gray-800 dark:text-gray-200 hover:text-cyan transition-colors block">Complex Cases</a></li>
+                      </ul>
+                    </div>
+
+                    {/* Right promo */}
+                    <div className="w-[25%] p-8 flex flex-col justify-center">
+                      <h3 className="text-graphite dark:text-white font-bold mb-4">Featured Product</h3>
+                      <div className="rounded-2xl overflow-hidden mb-4 aspect-[16/10] bg-gray-200 dark:bg-gray-800 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Dental Model" className="w-full h-full object-cover" />
+                      </div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                        Jump right in — get an overview of the basics and get started with our digital workflows.
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -159,7 +169,9 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center justify-end w-1/4 gap-4">
             <button 
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-graphite dark:text-white transition-colors"
+              className={`p-2 rounded-full hover:bg-white/10 dark:hover:bg-gray-800 transition-colors ${
+                lastScrollY > 20 ? 'text-graphite dark:text-white' : 'text-white'
+              }`}
               aria-label="Toggle dark mode"
             >
               {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -173,13 +185,17 @@ export default function Navigation() {
           <div className="lg:hidden flex items-center gap-4">
             <button 
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-graphite dark:text-white transition-colors"
+              className={`p-2 rounded-full hover:bg-white/10 dark:hover:bg-gray-800 transition-colors ${
+                lastScrollY > 20 ? 'text-graphite dark:text-white' : 'text-white'
+              }`}
             >
               {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-graphite dark:text-white p-2"
+              className={`p-2 ${
+                lastScrollY > 20 ? 'text-graphite dark:text-white' : 'text-white'
+              }`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

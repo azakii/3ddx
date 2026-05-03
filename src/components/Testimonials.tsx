@@ -1,5 +1,6 @@
-import { motion } from 'motion/react';
-import { Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Testimonials() {
   const testimonials = [
@@ -23,56 +24,93 @@ export default function Testimonials() {
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
-    <section className="py-20 md:py-24 px-4 md:px-8 w-full bg-titanium dark:bg-[#050505] transition-colors duration-300">
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="max-w-[1600px] mx-auto"
-      >
+    <section className="py-20 md:py-32 px-4 md:px-8 w-full bg-[#f4f4f5] dark:bg-[#0a0a0a] transition-colors duration-300">
+      <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
-            <span className="text-cyan font-bold tracking-widest uppercase mb-4 block">Clinical Outcomes</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter dark:text-white transition-colors">
+            <span className="text-[#188DBA] font-bold tracking-widest uppercase mb-4 block">Clinical Outcomes</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors">
               Trusted by leading clinicians worldwide.
             </h2>
           </div>
-          <p className="text-gray-500 dark:text-gray-400 max-w-xs transition-colors">
-            See how top specialists are scaling their practices and improving predictability.
-          </p>
+          
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={handlePrev}
+              className="w-14 h-14 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-graphite dark:text-white hover:bg-[#188DBA] hover:text-white hover:border-[#188DBA] transition-colors bg-white dark:bg-[#121212]"
+              aria-label="Previous testimonial"
+            >
+              <ArrowLeft className="w-6 h-6" />
+            </button>
+            <button 
+              onClick={handleNext}
+              className="w-14 h-14 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-graphite dark:text-white hover:bg-[#188DBA] hover:text-white hover:border-[#188DBA] transition-colors bg-white dark:bg-[#121212]"
+              aria-label="Next testimonial"
+            >
+              <ArrowRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {testimonials.map((testimonial, idx) => (
+        <div className="relative overflow-hidden w-full h-[400px] rounded-[2rem]">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white dark:bg-[#121212] rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col justify-between h-full hover:shadow-md transition-all duration-300"
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute inset-0 bg-white dark:bg-[#121212] p-8 md:p-16 border border-gray-100 dark:border-gray-800 flex flex-col justify-center transition-colors"
             >
-              <div>
-                <div className="flex gap-1 mb-8 text-cyan">
-                  {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-5 h-5" />)}
+              <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-start h-full">
+                <div className="flex-1">
+                  <div className="flex gap-1 mb-8 text-[#F2701D]">
+                    {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-6 h-6" />)}
+                  </div>
+                  <p className="text-2xl md:text-3xl lg:text-4xl text-graphite dark:text-gray-200 leading-tight font-medium mb-12">
+                    "{testimonials[currentIndex].quote}"
+                  </p>
                 </div>
-                <p className="text-lg md:text-xl text-gray-800 dark:text-gray-200 leading-relaxed font-medium mb-12">
-                  "{testimonial.quote}"
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-4 mt-auto">
-                <img src={testimonial.image} alt={testimonial.author} className="w-14 h-14 rounded-full object-cover grayscale" />
-                <div>
-                  <h4 className="font-display font-bold text-graphite dark:text-white text-lg transition-colors">{testimonial.author}</h4>
-                  <p className="text-gray-500 dark:text-gray-400 font-medium text-sm transition-colors">{testimonial.title}</p>
+                
+                <div className="flex items-center gap-6 shrink-0 pt-4 md:pt-0">
+                  <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].author} className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg" />
+                  <div>
+                    <h4 className="font-display font-bold text-graphite dark:text-white text-xl md:text-2xl transition-colors mb-1">{testimonials[currentIndex].author}</h4>
+                    <p className="text-[#188DBA] font-medium transition-colors text-sm md:text-base">{testimonials[currentIndex].title}</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
+          </AnimatePresence>
+        </div>
+        
+        {/* Pagination Dots */}
+        <div className="flex justify-center mt-8 gap-3">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                idx === currentIndex 
+                  ? "bg-[#188DBA] w-8" 
+                  : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
