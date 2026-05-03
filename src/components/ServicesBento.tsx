@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { WordFadeIn } from './WordFadeIn';
 
 export default function ServicesBento() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,7 +9,7 @@ export default function ServicesBento() {
   const services = [
     { num: '01', title: 'Implant Planning', desc: 'Precision CBCT merging and nerve mapping.', img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop' },
     { num: '02', title: 'Surgical Guides', desc: 'Custom printed with ISO-certified materials.', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop' },
-    { num: '03', title: 'Radiology Reports', desc: 'Board-certified OMR evaluations.', img: 'https://images.unsplash.com/photo-1594824436998-d8ea05bbb5eb?q=80&w=800&auto=format&fit=crop' },
+    { num: '03', title: 'Radiology Reports', desc: 'Board-certified OMR evaluations.', img: 'https://placehold.co/800x600/eaeaea/888888?text=Placeholder+Image' },
     { num: '04', title: 'Aligner Services', desc: 'Full digital setup and staging.', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop' },
     { num: '05', title: 'Restorations', desc: 'Custom abutments and crowns.', img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop' }
   ];
@@ -38,9 +39,11 @@ export default function ServicesBento() {
              </p>
           </div>
           <div className="mt-12 w-full overflow-hidden">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-tighter font-display text-graphite dark:text-white transition-colors duration-300 break-words hyphens-auto">
-              Digital<br/>Workflows
-            </h2>
+            <WordFadeIn 
+              text="Digital<br/>Workflows" 
+              as="h2" 
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-tighter font-display text-graphite dark:text-white transition-colors duration-300 break-words hyphens-auto" 
+            />
           </div>
         </div>
 

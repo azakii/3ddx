@@ -44,7 +44,20 @@ export default function Hero() {
             className="flex flex-col md:items-end text-left md:text-right space-y-6"
           >
              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-white max-w-lg leading-tight break-words">
-               We believe in the power of precision.
+               {"We believe in the power of precision.".split(" ").map((word, index) => (
+                 <span key={index}>
+                   <motion.span
+                     initial={{ opacity: 0, y: 10 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: false }}
+                     transition={{ delay: 1 + index * 0.1, duration: 0.8 }}
+                     className="inline-block"
+                   >
+                     {word}
+                   </motion.span>
+                   {" "}
+                 </span>
+               ))}
              </h2>
              <button className="bg-[#188DBA] text-white rounded-full px-10 py-5 font-bold text-lg hover:bg-white hover:text-graphite transition-all hover:scale-105 inline-block mt-4 w-max shadow-lg">
                Book an appointment

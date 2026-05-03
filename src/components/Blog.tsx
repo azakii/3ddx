@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowUpRight, Search, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { WordFadeIn } from './WordFadeIn';
 
 export default function Blog() {
   const blogPosts = [
@@ -27,7 +28,7 @@ export default function Blog() {
       tag: "Clinical Update",
       title: "Best Practices for Capturing High-Quality CBCT Scans",
       excerpt: "A step-by-step guide to minimizing artifacts and ensuring clear scans for complex radiological reports.",
-      image: "https://images.unsplash.com/photo-1544626154-b3c9d749437a?q=80&w=800&auto=format&fit=crop",
+      image: "https://placehold.co/800x600/eaeaea/888888?text=Placeholder+Image",
       date: "Oct 15, 2026",
       readTime: "4 min read"
     },
@@ -62,9 +63,11 @@ export default function Blog() {
             <span className="text-cyan font-bold tracking-widest uppercase mb-4 block flex items-center gap-2">
               <FileText className="w-5 h-5" /> 3DDX Insights
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors">
-              Clinical expertise,<br/>delivered digitally.
-            </h2>
+            <WordFadeIn 
+              text="Clinical expertise,<br/>delivered digitally." 
+              as="h2" 
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors" 
+            />
           </div>
           <div className="flex gap-2 ml-auto">
              <button 

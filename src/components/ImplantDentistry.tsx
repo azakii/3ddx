@@ -17,13 +17,33 @@ export default function ImplantDentistry() {
               Workflow Hub
             </span>
             <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-display font-bold leading-[1.05] tracking-tight mb-6 text-graphite dark:text-white uppercase transition-colors">
-              Master the 3DDX <br className="hidden md:block" />
-              <span className="text-[#188DBA] relative inline-block">
+              {"Master the 3DDX".split(" ").map((word, index) => (
+                <span key={index}>
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, margin: "-50px" }}
+                    transition={{ delay: index * 0.1, duration: 0.8 }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                  {" "}
+                </span>
+              ))}
+              <br className="hidden md:block" />
+              <motion.span
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-50px" }}
+                transition={{ delay: 3 * 0.1, duration: 0.8 }}
+                className="text-[#188DBA] relative inline-block"
+              >
                 Digital Workflow
                 <svg className="absolute w-full h-3 -bottom-2 md:-bottom-4 left-0 text-[#188DBA]/20" viewBox="0 0 100 12" preserveAspectRatio="none">
                   <path d="M0,10 Q50,-5 100,10" stroke="currentColor" strokeWidth="4" fill="none" />
                 </svg>
-              </span>
+              </motion.span>
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed transition-colors max-w-xl">
               Discover how digital workflows improve precision,

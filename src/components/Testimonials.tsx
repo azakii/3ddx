@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { WordFadeIn } from './WordFadeIn';
 
 export default function Testimonials() {
   const testimonials = [
@@ -8,7 +9,7 @@ export default function Testimonials() {
       quote: "3DDX has completely transformed our guided surgery workflow. The precision of their surgical guides and radiology reports gives us absolute confidence in every procedure.",
       author: "Dr. Sarah Jenkins",
       title: "Oral & Maxillofacial Surgeon, NY",
-      image: "https://images.unsplash.com/photo-1594824436998-d8ea05bbb5eb?q=80&w=200&auto=format&fit=crop"
+      image: "https://placehold.co/200x200/eaeaea/888888?text=Avatar+Placeholder"
     },
     {
       quote: "The turnaround time and clinical accuracy for our All-on-X cases have dramatically improved. It's an enterprise-grade solution that acts as an extension of our practice.",
@@ -40,9 +41,11 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
             <span className="text-[#188DBA] font-bold tracking-widest uppercase mb-4 block">Clinical Outcomes</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors">
-              Trusted by leading clinicians worldwide.
-            </h2>
+            <WordFadeIn 
+              text="Trusted by leading clinicians worldwide." 
+              as="h2" 
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors" 
+            />
           </div>
           
           <div className="flex items-center gap-4">

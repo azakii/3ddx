@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Target, Users, Zap, ShieldCheck } from 'lucide-react';
+import { WordFadeIn } from './WordFadeIn';
 
 export default function WhyChooseUs() {
   const features = [
@@ -34,9 +35,11 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-graphite dark:text-white uppercase tracking-tight mb-4">
-            Why Choose Us
-          </h2>
+          <WordFadeIn 
+            text="Why Choose Us" 
+            as="h2" 
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-graphite dark:text-white uppercase tracking-tight mb-4" 
+          />
           <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-16">
             We are the premier partner for oral surgeons and restorative dentists, delivering enterprise-level precision for your most complex cases.
           </p>

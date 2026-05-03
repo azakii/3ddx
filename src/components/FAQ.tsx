@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
+import { WordFadeIn } from './WordFadeIn';
 
 export default function FAQ() {
   const faqs = [
@@ -42,9 +43,11 @@ export default function FAQ() {
       >
         <div className="lg:col-span-5">
            <span className="text-cyan font-bold tracking-widest uppercase mb-4 block">FAQ</span>
-           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors mb-6">
-             Frequently asked questions.
-           </h2>
+           <WordFadeIn 
+             text="Frequently asked questions." 
+             as="h2" 
+             className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors mb-6" 
+           />
            <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors">
              Everything you need to know about our digital workflows and clinical services. Can't find the answer? Get in touch.
            </p>

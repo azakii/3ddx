@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Facebook, Instagram, Linkedin, Twitter, Mail } from 'lucide-react';
+import { WordFadeIn } from './WordFadeIn';
 
 export default function FooterBooking() {
   return (
@@ -9,9 +10,11 @@ export default function FooterBooking() {
       <div className="max-w-[1400px] mx-auto relative z-10 w-full">
         <div className="flex flex-col lg:flex-row gap-12 justify-between mb-16">
           <div className="max-w-2xl w-full">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium leading-[0.8] tracking-tighter mb-8 break-words hyphens-auto">
-              Book an<br/>Appointment
-            </h2>
+            <WordFadeIn 
+              text="Book an<br/>Appointment" 
+              as="h2" 
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium leading-[0.8] tracking-tighter mb-8 break-words hyphens-auto" 
+            />
             <p className="text-gray-400 text-lg md:text-xl font-medium">Partner with 3DDX today for predictable surgical outcomes.</p>
           </div>
           <div className="flex flex-col gap-4 max-w-sm justify-end pb-8">
