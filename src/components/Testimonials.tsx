@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { WordFadeIn } from './WordFadeIn';
+import AnimatedButton from './AnimatedButton';
 
 export default function Testimonials() {
   const testimonials = [
@@ -22,17 +23,38 @@ export default function Testimonials() {
       author: "Dr. Elena Rodriguez",
       title: "Implantologist, FL",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      quote: "The quality of the 3D models and aligner setups exceed anything we've worked with previously. It truly elevates our orthodontic offerings.",
+      author: "Dr. James Wilson",
+      title: "Orthodontist, TX",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      quote: "Communication with their lab is phenomenal. Any adjustments we need for complex restorative cases are handled swiftly and accurately.",
+      author: "Dr. Emily Taylor",
+      title: "General Dentist, WA",
+      image: "https://images.unsplash.com/photo-1594824436951-7f12bc552fb1?q=80&w=200&auto=format&fit=crop"
+    },
+    {
+      quote: "Integrating their radiology reports into our daily workflow has saved us countless hours. The detailed analysis provides insights we can trust.",
+      author: "Dr. Robert Foster",
+      title: "Periodontist, IL",
+      image: "https://images.unsplash.com/photo-1622253692348-73b060f6797a?q=80&w=200&auto=format&fit=crop"
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 2;
+  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+
+  const [currentPage, setCurrentPage] = useState(0);
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentPage((prev) => Math.max(prev - 1, 0));
   };
 
   return (
@@ -48,68 +70,77 @@ export default function Testimonials() {
             />
           </div>
           
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={handlePrev}
-              className="w-14 h-14 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-graphite dark:text-white hover:bg-[#188DBA] hover:text-white hover:border-[#188DBA] transition-colors bg-white dark:bg-[#121212]"
-              aria-label="Previous testimonial"
-            >
-              <ArrowLeft className="w-6 h-6" />
-            </button>
-            <button 
-              onClick={handleNext}
-              className="w-14 h-14 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-graphite dark:text-white hover:bg-[#188DBA] hover:text-white hover:border-[#188DBA] transition-colors bg-white dark:bg-[#121212]"
-              aria-label="Next testimonial"
-            >
-              <ArrowRight className="w-6 h-6" />
-            </button>
+          <div className="flex gap-4 ml-auto items-center">
+            <AnimatedButton className="bg-[#188DBA] text-white hover:bg-[#F2701D] px-6 py-3 hidden md:inline-flex text-sm">
+              View All Outcomes
+            </AnimatedButton>
+            <div className="flex gap-2">
+              <button 
+                onClick={handlePrev}
+                disabled={currentPage === 0}
+                className="w-14 h-14 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-graphite dark:text-white hover:bg-[#188DBA] hover:text-white hover:border-[#188DBA] transition-colors bg-white dark:bg-[#121212] disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-300 disabled:hover:dark:border-gray-700 disabled:hover:text-graphite disabled:hover:dark:text-white"
+                aria-label="Previous testimonial"
+              >
+                <ArrowLeft className="w-6 h-6" />
+              </button>
+              <button 
+                onClick={handleNext}
+                disabled={currentPage === totalPages - 1}
+                className="w-14 h-14 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-graphite dark:text-white hover:bg-[#188DBA] hover:text-white hover:border-[#188DBA] transition-colors bg-white dark:bg-[#121212] disabled:opacity-50 disabled:hover:bg-white disabled:hover:dark:bg-[#121212] disabled:hover:border-gray-300 disabled:hover:dark:border-gray-700 disabled:hover:text-graphite disabled:hover:dark:text-white"
+                aria-label="Next testimonial"
+              >
+                <ArrowRight className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="relative overflow-hidden w-full h-[400px] rounded-[2rem]">
+        <div className="relative overflow-visible w-full min-h-[350px]">
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentIndex}
+              key={currentPage}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0 bg-white dark:bg-[#121212] p-8 md:p-16 border border-gray-100 dark:border-gray-800 flex flex-col justify-center transition-colors"
+              className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
             >
-              <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-start h-full">
-                <div className="flex-1">
-                  <div className="flex gap-1 mb-8 text-[#F2701D]">
-                    {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-6 h-6" />)}
-                  </div>
-                  <p className="text-2xl md:text-3xl lg:text-4xl text-graphite dark:text-gray-200 leading-tight font-medium mb-12">
-                    "{testimonials[currentIndex].quote}"
-                  </p>
-                </div>
-                
-                <div className="flex items-center gap-6 shrink-0 pt-4 md:pt-0">
-                  <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].author} className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover hover:shadow-lg" />
+              {testimonials.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((testimonial, idx) => (
+                <div key={idx} className="bg-white dark:bg-[#121212] p-8 md:p-12 border border-gray-100 dark:border-gray-800 rounded-[2rem] flex flex-col justify-between transition-colors h-full">
                   <div>
-                    <h4 className="font-display font-bold text-graphite dark:text-white text-xl md:text-2xl transition-colors mb-1">{testimonials[currentIndex].author}</h4>
-                    <p className="text-[#188DBA] font-medium transition-colors text-sm md:text-base">{testimonials[currentIndex].title}</p>
+                    <div className="flex gap-1 mb-8 text-[#F2701D]">
+                      {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="w-5 h-5" />)}
+                    </div>
+                    <p className="text-lg md:text-xl text-graphite dark:text-gray-200 leading-relaxed font-medium mb-10">
+                      "{testimonial.quote}"
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center gap-4 shrink-0">
+                    <img src={testimonial.image} alt={testimonial.author} className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-sm" />
+                    <div>
+                      <h4 className="font-display font-bold text-graphite dark:text-white text-lg transition-colors mb-0.5">{testimonial.author}</h4>
+                      <p className="text-[#188DBA] font-medium transition-colors text-sm">{testimonial.title}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </motion.div>
           </AnimatePresence>
         </div>
         
         {/* Pagination Dots */}
-        <div className="flex justify-center mt-8 gap-3">
-          {testimonials.map((_, idx) => (
+        <div className="flex justify-center mt-12 gap-3">
+          {Array.from({ length: totalPages }).map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setCurrentIndex(idx)}
+              onClick={() => setCurrentPage(idx)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                idx === currentIndex 
+                idx === currentPage 
                   ? "bg-[#188DBA] w-8" 
                   : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400"
               }`}
-              aria-label={`Go to testimonial ${idx + 1}`}
+              aria-label={`Go to page ${idx + 1}`}
             />
           ))}
         </div>

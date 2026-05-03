@@ -1,10 +1,11 @@
 import { motion } from 'motion/react';
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { WordFadeIn } from './WordFadeIn';
 
 export default function ServicesBento() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const services = [
     { num: '01', title: 'Implant Planning', desc: 'Precision CBCT merging and nerve mapping.', img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop' },
@@ -19,6 +20,19 @@ export default function ServicesBento() {
 
   const next = () => setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   const prev = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
+
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        if (prev >= maxIndex) {
+          return 0; // jump back to start
+        }
+        return prev + 1;
+      });
+    }, 4000); // 4 seconds between sliding
+    return () => clearInterval(interval);
+  }, [maxIndex, isHovered]);
 
   return (
     <section className="px-4 md:px-8 py-12 md:py-16 w-full overflow-hidden">
@@ -78,7 +92,11 @@ export default function ServicesBento() {
       </motion.div>
 
       {/* Horizontal List of Services - Carousel */}
-      <div className="mt-12 max-w-[1600px] mx-auto pb-8 relative">
+      <div 
+        className="mt-12 max-w-[1600px] mx-auto pb-8 relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="flex justify-between items-end mb-6">
           <h3 className="text-2xl font-display font-medium text-graphite dark:text-white transition-colors hidden md:block">Explore Solutions</h3>
           <div className="flex gap-2 ml-auto hidden md:flex">

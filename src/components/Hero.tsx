@@ -9,7 +9,7 @@ export default function Hero() {
   const opacity = useSpring(rawOpacity, { stiffness: 50, damping: 20, restDelta: 0.001 });
 
   return (
-    <section className="h-[80vh] w-full bg-graphite transition-colors duration-300">
+    <section className="h-[100vh] w-full bg-graphite transition-colors duration-300">
       <motion.div 
         style={{ y, opacity }}
         className="w-full h-full flex flex-col justify-end pt-32 md:pt-40 pb-12 md:pb-16 px-6 md:px-16 bg-graphite transition-colors duration-300 relative"
@@ -21,10 +21,10 @@ export default function Hero() {
           loop 
           muted 
           playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-60 mix-blend-luminosity"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-70"
         >
           {/* using a high quality dental/medical stock video reference representation */}
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-orthodontist-checking-a-patient-with-braces-42865-large.mp4" type="video/mp4" />
+          <source src="https://cdn-cf-east.streamable.com/video/mp4/gnm4rw.mp4?Expires=1778094864606&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ&Signature=BmDA0vOemP9Bt5zIkWUAaBYPDquEKVGwrR0LikEa0DQzMqns1xnFrFYLTYcbHqNh6nlsg~smC3qn-Mxx7q0WwXPZXxCQtd1ca84C8BZ54M~X9c8eahN7EDM49d9yc~SC4rA5BSdiX7KhYazF3Tjf0YybdCBuSzWAz3SXkEsVlsIKTELC-Ktx0yHokPzlpu5IGQaoHrncoV0r35iKclQ0pUc8BcAQd9jSDvlOheQdCimHAYZTfNIztJs6xI~IIMTp76wqqUhdWo8oBM-cug6YVhC1ECvCoLxigkVYGtNWPEb6OLm3Em1TqiWiHXUwxhh0LEiUClD93UBzvNcTMqrg-Q__" type="video/mp4" />
         </video>
         
         {/* Adjusted overlay without mix-blend-multiply to ensure video is visible but darkened */}

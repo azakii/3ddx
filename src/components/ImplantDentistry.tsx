@@ -59,8 +59,8 @@ export default function ImplantDentistry() {
           {/* Large Video Card - Spans 2 cols on lg */}
           <div className="lg:col-span-2 relative rounded-[2.5rem] overflow-hidden aspect-[16/10] lg:aspect-auto h-full min-h-[400px] border border-gray-100 dark:border-gray-800 group hover:shadow-lg bg-[#0a0a0a]">
             <video 
-              src="https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patient-in-a-dental-clinic-42862-large.mp4" 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-70 mix-blend-luminosity"
+              src="https://cdn-cf-east.streamable.com/video/mp4/d8v8m7.mp4?Expires=1778096955461&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ&Signature=JmNVzD4p45lGtyWb2t4eW7W3B5r-Zdb9LlKlhlE344G44cojlTfaSQqnDHPDbSIPqlAKcR7RPyRyW2KN08I7JXemxSiF2cpiJ3CrHU4tixf-PBhwlbTzQJ8XLKC9bQSz5qZPvb7W4yfZg3t8sM1KSNdP~lDHIi1UElXKRUfJUoMUDPVtyzOUPEr5i42c6Ivjm5-gBxmuP89vfSpi2rs-cJ16kVe2SP-ReC8rmMAAm4dHcA~~ma5o3m166Tb2zQkNhLelq33sFHR9bozdsaBjZ5tD6HosVQZdBhMlwXM1ORzLMgZMIKlNNffPdlvvu5SpV0BDirgKboIHMq-XIipFBw__" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
               autoPlay loop muted playsInline
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
@@ -70,9 +70,6 @@ export default function ImplantDentistry() {
                   <span className="inline-block px-3 py-1.5 bg-white/10 backdrop-blur-md rounded-lg text-white text-xs font-bold mb-5 uppercase tracking-wider border border-white/20">Tutorial</span>
                   <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight leading-tight">See how it works</h3>
                   <p className="text-gray-300 max-w-md text-lg leading-relaxed">Jump right in — get an overview of the basics and see a full implant procedure from start to finish.</p>
-                </div>
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#188DBA] flex items-center justify-center cursor-pointer hover:bg-white group/btn transition-colors hover:shadow-2xl shadow-[#188DBA]/40 shrink-0">
-                  <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-2 group-hover/btn:text-[#188DBA] group-hover/btn:fill-[#188DBA] transition-colors" />
                 </div>
               </div>
             </div>

@@ -18,6 +18,8 @@ import FloatingContact from './components/FloatingContact';
 import Preloader from './components/Preloader';
 import ParallaxSection from './components/ParallaxSection';
 
+import ScrollProgress from './components/ScrollProgress';
+
 export default function App() {
   const [loading, setLoading] = useState(true);
 
@@ -33,12 +35,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#050505] transition-colors duration-300 flex flex-col">
+      <ScrollProgress />
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       
       <Navigation />
       
-      <div className="w-full relative h-[80vh]">
-        <div className="fixed top-0 left-0 w-full h-[80vh] z-0">
+      <div className="w-full relative h-[100vh]">
+        <div className="fixed top-0 left-0 w-full h-[100vh] z-0">
           <Hero />
         </div>
       </div>

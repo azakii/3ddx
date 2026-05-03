@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
 import { WordFadeIn } from './WordFadeIn';
+import AnimatedButton from './AnimatedButton';
 
 export default function FAQ() {
   const faqs = [
@@ -48,9 +49,13 @@ export default function FAQ() {
              as="h2" 
              className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter text-graphite dark:text-white transition-colors mb-6" 
            />
-           <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors">
+           <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors mb-10">
              Everything you need to know about our digital workflows and clinical services. Can't find the answer? Get in touch.
            </p>
+           
+           <AnimatedButton className="bg-[#188DBA] text-white px-8 py-4 hover:bg-[#F2701D]">
+             Contact Support
+           </AnimatedButton>
         </div>
 
         <div className="lg:col-span-7 flex flex-col gap-4">
