@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
+import { ArrowRight } from 'lucide-react';
 
 export default function ParallaxSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,18 +34,21 @@ export default function ParallaxSection() {
       </motion.div>
       
       {/* Foreground Text Layer */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pointer-events-none">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
         <motion.div 
-          className="flex flex-col items-center text-center"
+          className="flex flex-col items-center text-center pointer-events-auto"
         >
           <h2 className="text-6xl md:text-8xl lg:text-[10rem] xl:text-[11rem] font-display font-medium text-white leading-[0.8] tracking-tighter">
             IMPERCEPTIBLE
             <br />
             <span className="italic text-[#188DBA] font-serif">PRECISION</span>
           </h2>
-          <p className="max-w-xl mx-auto mt-8 text-lg md:text-xl text-gray-400 font-medium leading-relaxed drop-shadow-lg">
+          <p className="max-w-xl mx-auto mt-8 text-lg md:text-xl text-white font-medium leading-relaxed drop-shadow-lg">
             Experience the zenith of digital workflows. Fluid motion, absolute accuracy, and visionary results for modern implantology.
           </p>
+          <button className="mt-10 bg-[#188DBA] text-white font-bold py-4 px-10 rounded-full flex items-center justify-center gap-2 hover:bg-white hover:text-[#188DBA] transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#188DBA]/20">
+            Start a Case <ArrowRight className="w-5 h-5" />
+          </button>
         </motion.div>
       </div>
     </section>

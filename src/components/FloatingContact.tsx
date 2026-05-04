@@ -75,7 +75,7 @@ export default function FloatingContact() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="bg-[#188DBA] dark:bg-[#188DBA] text-white rounded-full p-4 md:p-5 shadow-xl hover:shadow-2xl hover:bg-[#F2701D] dark:hover:bg-[#F2701D] transition-colors border-2 border-transparent dark:border-[#188DBA]/20 flex items-center justify-center shrink-0 pointer-events-auto"
+            className="bg-[#F2701D] dark:bg-[#F2701D] text-white rounded-full p-4 md:p-5 shadow-xl hover:shadow-2xl hover:bg-[#188DBA] dark:hover:bg-[#188DBA] transition-colors border-2 border-transparent dark:border-[#F2701D]/20 flex items-center justify-center shrink-0 pointer-events-auto"
             aria-label={isOpen ? "Close contact menu" : "Contact Us"}
           >
             <motion.div
