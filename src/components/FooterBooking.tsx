@@ -19,7 +19,7 @@ export default function FooterBooking() {
           </div>
           <div className="flex flex-col gap-4 max-w-sm justify-end pb-8">
             <p className="text-gray-300">Need immediate assistance? Call our clinical support team.</p>
-            <p className="text-3xl font-display text-[#188DBA]">1-800-555-3DDX</p>
+            <p className="text-3xl font-display text-[#188DBA]">1-800-555-321</p>
             <a href="mailto:info@3ddx.com" className="flex items-center gap-2 text-xl mt-2 text-gray-300 hover:text-[#188DBA] transition-colors group">
               <Mail className="w-5 h-5 group-hover:text-[#F2701D] transition-colors" /> info@3ddx.com
             </a>
