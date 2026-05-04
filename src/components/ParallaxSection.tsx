@@ -41,7 +41,7 @@ export default function ParallaxSection() {
           <h2 className="text-6xl md:text-8xl lg:text-[10rem] xl:text-[11rem] font-display font-medium text-white leading-[0.8] tracking-tighter">
             IMPERCEPTIBLE
             <br />
-            <span className="italic text-[#188DBA] font-serif">PRECISION</span>
+            <span className="italic text-[#f6823c] font-serif">PRECISION</span>
           </h2>
           <p className="max-w-xl mx-auto mt-8 text-lg md:text-xl text-white font-medium leading-relaxed drop-shadow-lg">
             Experience the zenith of digital workflows. Fluid motion, absolute accuracy, and visionary results for modern implantology.
