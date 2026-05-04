@@ -53,7 +53,7 @@ export default function Hero() {
             transition={{ delay: 1, duration: 0.8 }}
             className="flex flex-col md:items-end text-left md:text-right space-y-6"
           >
-             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-white max-w-lg leading-tight break-words">
+             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white max-w-lg leading-tight break-words">
                {"We believe in the power of precision.".split(" ").map((word, index) => (
                  <span key={index}>
                    <motion.span

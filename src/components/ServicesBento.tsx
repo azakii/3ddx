@@ -56,7 +56,7 @@ export default function ServicesBento() {
             <WordFadeIn 
               text="Digital<br/>Solutions" 
               as="h2" 
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-tighter font-display text-graphite dark:text-white transition-colors duration-300 break-words hyphens-auto" 
+              className="text-4xl md:text-5xl lg:text-6xl leading-[0.9] tracking-tighter font-display text-graphite dark:text-white transition-colors duration-300 break-words hyphens-auto" 
             />
           </div>
         </div>

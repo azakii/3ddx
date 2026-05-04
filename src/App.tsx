@@ -59,7 +59,7 @@ export default function App() {
             <div className="overflow-hidden bg-white dark:bg-[#0a0a0a]">
               <ServicesBento />
             </div>
-            <div className="overflow-hidden bg-white dark:bg-[#0a0a0a]">
+            <div className="bg-white dark:bg-[#0a0a0a] rounded-[2.5rem] overflow-visible">
               <ImplantDentistry />
             </div>
           </main>

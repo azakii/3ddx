@@ -13,7 +13,7 @@ export default function FooterBooking() {
             <WordFadeIn 
               text="Book an<br/>Appointment" 
               as="h2" 
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium leading-[0.8] tracking-tighter mb-8 break-words hyphens-auto" 
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tighter mb-8 break-words hyphens-auto" 
             />
             <p className="text-gray-400 text-lg md:text-xl font-medium">Partner with 3DDX today for predictable surgical outcomes.</p>
           </div>
